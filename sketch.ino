@@ -1,26 +1,25 @@
-https://wokwi.com/projects/479181038763508737
+https://wokwi.com/projects/479263057093989377
 
-const int LDR_PIN = A0;
-const int LED_PIN = 8;
+#define LDRPIN A0
+#define LEDPIN 8
 
 void setup() {
-  pinMode(LED_PIN, OUTPUT);
   Serial.begin(9600);
+  pinMode(LEDPIN, OUTPUT);
 }
 
 void loop() {
-  int lightLevel = analogRead(LDR_PIN);
+  int lightValue = analogRead(LDRPIN);
 
-  if (lightLevel > 600) {
-    digitalWrite(LED_PIN, HIGH);
-    Serial.println("LED: ON - Dark condition");
+  Serial.print("Light Sensor Reading: ");
+  Serial.println(lightValue);
+
+  // TASK 1: Change the threshold to 500
+  if (lightValue > 600) {
+    digitalWrite(LEDPIN, HIGH);
   } else {
-    digitalWrite(LED_PIN, LOW);
-    Serial.println("LED: OFF - Bright condition");
+    digitalWrite(LEDPIN, LOW);
   }
 
-  Serial.print("Analog Reading: ");
-  Serial.println(lightLevel);
-
-  delay(1000);
+  delay(500);
 }
