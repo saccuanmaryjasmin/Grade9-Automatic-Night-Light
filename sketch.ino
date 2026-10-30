@@ -1,5 +1,3 @@
-https://wokwi.com/projects/479263057093989377
-
 #define LDRPIN A0
 #define LEDPIN 8
 
